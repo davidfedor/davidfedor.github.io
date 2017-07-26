@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<HTML>
+<head>
+  <meta charset='utf-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+</head>
+<body onload='onLoad()' style='font-size:large'>
+  <textarea id='in' oninput='handleInputChange()' style='font-size:large;border-color:lightgray; width=320px'></textarea>
+  <div id='out'/>
+
+  <script type='text/javascript'>
+    function handleInputChange() {
+      var s = document.getElementById('in').value.trim();
+      var out = document.getElementById('out');
+      out.innerHTML = '';
+      if (s)
+        out.textContent = 'You searched for: ' + s;
+    }
+    function onLoad() {
+      var li = document.getElementById('in');
+      li.addEventListener('keyup', handleInputChange, false);
+      li.focus();
+    }
+  </script>
+</body>
